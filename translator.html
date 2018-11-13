@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="main.js"></script>
+</head>
+<body>
+    
+    <input id="textInput" class="input-class" type="text">
+    <h3>Translated to</h3>
+    <select name="lang" id="languageSelect">
+        <option value="portuguese">Portuguese</option>
+        <option value="spanish">Spanish</option>
+        <option value="french">French</option>
+    </select>
+    <button id="translateButton">Translate</button>
+    <div id="translation">
+        
+    </div>
+</body>
+</html>
+
+<script>
+    let phrase = document.getElementById("textInput").value;
+    let translateLanguage = document.getElementById("languageSelect").value;
+    console.log('phrase', phrase, 'translateLanguage', translateLanguage);
+
+    let portugueseTranslations = {
+        "Good morning": "Bom dia",
+        "Good afternoon": "Boa tarde",
+        "Good evening": "Boa noite",
+        "I'm hungry": "Estou com fome",
+        "I'm tired": "Estou cansado",
+    };
+
+    let spanishTranslations = {
+        "Good morning": "Buenos días",
+        "Good afternoon": "buenas tardes",
+        "Good evening": "buena noches",
+        "I'm hungry": "tengo hambre",
+        "I'm tired": "estoy cansado",
+    }
+    let frenchTranslation={
+        "Good morning": "Bonjour",
+        "Good afternoon": "bonne après-midi",
+        "Good evening": "Bonsoir",
+        "I'm hungry": "j'ai faim",
+        "I'm tired": "je suis fatigué",
+    }
+
+    function translate(){
+        let phrase = document.getElementById("textInput").value;
+        let translateLanguage = document.getElementById("languageSelect").value;
+        
+        document.getElementById("translation").textContent = portugueseTranslations[phrase];
+    }
+
+    document.getElementById("textInput").addEventListener("input", translate);
+</script>
